@@ -1,0 +1,1678 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> NAME EQUALS expression
+Rule 2     statement -> expression
+Rule 3     expression -> expression PLUS expression
+Rule 4     expression -> expression MINUS expression
+Rule 5     expression -> expression TIMES expression
+Rule 6     expression -> expression DIVIDE expression
+Rule 7     expression -> expression MINOR expression
+Rule 8     expression -> expression MINOR EQUALS expression
+Rule 9     expression -> expression MAJOR expression
+Rule 10    expression -> expression MAJOR EQUALS expression
+Rule 11    expression -> expression EQUALS EQUALS expression
+Rule 12    expression -> expression EXP expression
+Rule 13    expression -> MINUS expression
+Rule 14    expression -> LPAREN expression RPAREN
+Rule 15    expression -> NUMBER
+Rule 16    expression -> NAME
+Rule 17    expression -> POW LPAREN expression COMMA expression RPAREN
+Rule 18    expression -> SQRT LPAREN expression RPAREN
+Rule 19    expression -> MYRNA LPAREN expression RPAREN
+Rule 20    expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+Terminals, with rules where they appear
+
+BHASKARA             : 20
+COMMA                : 17 20 20
+DIVIDE               : 6
+EQUALS               : 1 8 10 11 11
+EXP                  : 12
+LPAREN               : 14 17 18 19 20
+MAJOR                : 9 10
+MINOR                : 7 8
+MINUS                : 4 13
+MYRNA                : 19
+NAME                 : 1 16
+NUMBER               : 15
+PLUS                 : 3
+POW                  : 17
+RPAREN               : 14 17 18 19 20
+SQRT                 : 18
+TIMES                : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 14 17 17 18 19 20 20 20
+statement            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . NAME EQUALS expression
+    (2) statement -> . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    NAME            shift and go to state 2
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    statement                      shift and go to state 1
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> NAME . EQUALS expression
+    (16) expression -> NAME .
+
+  ! shift/reduce conflict for EQUALS resolved as shift
+    EQUALS          shift and go to state 11
+    PLUS            reduce using rule 16 (expression -> NAME .)
+    MINUS           reduce using rule 16 (expression -> NAME .)
+    TIMES           reduce using rule 16 (expression -> NAME .)
+    DIVIDE          reduce using rule 16 (expression -> NAME .)
+    MINOR           reduce using rule 16 (expression -> NAME .)
+    MAJOR           reduce using rule 16 (expression -> NAME .)
+    EXP             reduce using rule 16 (expression -> NAME .)
+    $end            reduce using rule 16 (expression -> NAME .)
+
+  ! EQUALS          [ reduce using rule 16 (expression -> NAME .) ]
+
+
+state 3
+
+    (2) statement -> expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    $end            reduce using rule 2 (statement -> expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 4
+
+    (13) expression -> MINUS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 20
+
+state 5
+
+    (14) expression -> LPAREN . expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 22
+
+state 6
+
+    (15) expression -> NUMBER .
+
+    PLUS            reduce using rule 15 (expression -> NUMBER .)
+    MINUS           reduce using rule 15 (expression -> NUMBER .)
+    TIMES           reduce using rule 15 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 15 (expression -> NUMBER .)
+    MINOR           reduce using rule 15 (expression -> NUMBER .)
+    MAJOR           reduce using rule 15 (expression -> NUMBER .)
+    EQUALS          reduce using rule 15 (expression -> NUMBER .)
+    EXP             reduce using rule 15 (expression -> NUMBER .)
+    $end            reduce using rule 15 (expression -> NUMBER .)
+    RPAREN          reduce using rule 15 (expression -> NUMBER .)
+    COMMA           reduce using rule 15 (expression -> NUMBER .)
+
+
+state 7
+
+    (17) expression -> POW . LPAREN expression COMMA expression RPAREN
+
+    LPAREN          shift and go to state 23
+
+
+state 8
+
+    (18) expression -> SQRT . LPAREN expression RPAREN
+
+    LPAREN          shift and go to state 24
+
+
+state 9
+
+    (19) expression -> MYRNA . LPAREN expression RPAREN
+
+    LPAREN          shift and go to state 25
+
+
+state 10
+
+    (20) expression -> BHASKARA . LPAREN expression COMMA expression COMMA expression RPAREN
+
+    LPAREN          shift and go to state 26
+
+
+state 11
+
+    (1) statement -> NAME EQUALS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 27
+
+state 12
+
+    (3) expression -> expression PLUS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 28
+
+state 13
+
+    (4) expression -> expression MINUS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 29
+
+state 14
+
+    (5) expression -> expression TIMES . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 30
+
+state 15
+
+    (6) expression -> expression DIVIDE . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 31
+
+state 16
+
+    (7) expression -> expression MINOR . expression
+    (8) expression -> expression MINOR . EQUALS expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    EQUALS          shift and go to state 33
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 32
+
+state 17
+
+    (11) expression -> expression EQUALS . EQUALS expression
+
+    EQUALS          shift and go to state 34
+
+
+state 18
+
+    (9) expression -> expression MAJOR . expression
+    (10) expression -> expression MAJOR . EQUALS expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    EQUALS          shift and go to state 36
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 35
+
+state 19
+
+    (12) expression -> expression EXP . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 37
+
+state 20
+
+    (13) expression -> MINUS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 13 (expression -> MINUS expression .)
+    MINUS           reduce using rule 13 (expression -> MINUS expression .)
+    TIMES           reduce using rule 13 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 13 (expression -> MINUS expression .)
+    MINOR           reduce using rule 13 (expression -> MINUS expression .)
+    MAJOR           reduce using rule 13 (expression -> MINUS expression .)
+    EQUALS          reduce using rule 13 (expression -> MINUS expression .)
+    EXP             reduce using rule 13 (expression -> MINUS expression .)
+    $end            reduce using rule 13 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 13 (expression -> MINUS expression .)
+    COMMA           reduce using rule 13 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! MINOR           [ shift and go to state 16 ]
+  ! MAJOR           [ shift and go to state 18 ]
+  ! EQUALS          [ shift and go to state 17 ]
+  ! EXP             [ shift and go to state 19 ]
+
+
+state 21
+
+    (16) expression -> NAME .
+
+    PLUS            reduce using rule 16 (expression -> NAME .)
+    MINUS           reduce using rule 16 (expression -> NAME .)
+    TIMES           reduce using rule 16 (expression -> NAME .)
+    DIVIDE          reduce using rule 16 (expression -> NAME .)
+    MINOR           reduce using rule 16 (expression -> NAME .)
+    MAJOR           reduce using rule 16 (expression -> NAME .)
+    EQUALS          reduce using rule 16 (expression -> NAME .)
+    EXP             reduce using rule 16 (expression -> NAME .)
+    $end            reduce using rule 16 (expression -> NAME .)
+    RPAREN          reduce using rule 16 (expression -> NAME .)
+    COMMA           reduce using rule 16 (expression -> NAME .)
+
+
+state 22
+
+    (14) expression -> LPAREN expression . RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 38
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 23
+
+    (17) expression -> POW LPAREN . expression COMMA expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 39
+
+state 24
+
+    (18) expression -> SQRT LPAREN . expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 40
+
+state 25
+
+    (19) expression -> MYRNA LPAREN . expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 41
+
+state 26
+
+    (20) expression -> BHASKARA LPAREN . expression COMMA expression COMMA expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 42
+
+state 27
+
+    (1) statement -> NAME EQUALS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    $end            reduce using rule 1 (statement -> NAME EQUALS expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 28
+
+    (3) expression -> expression PLUS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 3 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 3 (expression -> expression PLUS expression .)
+    MINOR           reduce using rule 3 (expression -> expression PLUS expression .)
+    MAJOR           reduce using rule 3 (expression -> expression PLUS expression .)
+    EQUALS          reduce using rule 3 (expression -> expression PLUS expression .)
+    EXP             reduce using rule 3 (expression -> expression PLUS expression .)
+    $end            reduce using rule 3 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 3 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 3 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+
+  ! TIMES           [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 3 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! MINOR           [ shift and go to state 16 ]
+  ! MAJOR           [ shift and go to state 18 ]
+  ! EQUALS          [ shift and go to state 17 ]
+  ! EXP             [ shift and go to state 19 ]
+
+
+state 29
+
+    (4) expression -> expression MINUS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 4 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 4 (expression -> expression MINUS expression .)
+    MINOR           reduce using rule 4 (expression -> expression MINUS expression .)
+    MAJOR           reduce using rule 4 (expression -> expression MINUS expression .)
+    EQUALS          reduce using rule 4 (expression -> expression MINUS expression .)
+    EXP             reduce using rule 4 (expression -> expression MINUS expression .)
+    $end            reduce using rule 4 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 4 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 4 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+
+  ! TIMES           [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 4 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! MINOR           [ shift and go to state 16 ]
+  ! MAJOR           [ shift and go to state 18 ]
+  ! EQUALS          [ shift and go to state 17 ]
+  ! EXP             [ shift and go to state 19 ]
+
+
+state 30
+
+    (5) expression -> expression TIMES expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 5 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 5 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 5 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 5 (expression -> expression TIMES expression .)
+    MINOR           reduce using rule 5 (expression -> expression TIMES expression .)
+    MAJOR           reduce using rule 5 (expression -> expression TIMES expression .)
+    EQUALS          reduce using rule 5 (expression -> expression TIMES expression .)
+    EXP             reduce using rule 5 (expression -> expression TIMES expression .)
+    $end            reduce using rule 5 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 5 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 5 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! MINOR           [ shift and go to state 16 ]
+  ! MAJOR           [ shift and go to state 18 ]
+  ! EQUALS          [ shift and go to state 17 ]
+  ! EXP             [ shift and go to state 19 ]
+
+
+state 31
+
+    (6) expression -> expression DIVIDE expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 6 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 6 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 6 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 6 (expression -> expression DIVIDE expression .)
+    MINOR           reduce using rule 6 (expression -> expression DIVIDE expression .)
+    MAJOR           reduce using rule 6 (expression -> expression DIVIDE expression .)
+    EQUALS          reduce using rule 6 (expression -> expression DIVIDE expression .)
+    EXP             reduce using rule 6 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 6 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 6 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 6 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! MINOR           [ shift and go to state 16 ]
+  ! MAJOR           [ shift and go to state 18 ]
+  ! EQUALS          [ shift and go to state 17 ]
+  ! EXP             [ shift and go to state 19 ]
+
+
+state 32
+
+    (7) expression -> expression MINOR expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINOR resolved as shift
+  ! shift/reduce conflict for MAJOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 7 (expression -> expression MINOR expression .)
+    RPAREN          reduce using rule 7 (expression -> expression MINOR expression .)
+    COMMA           reduce using rule 7 (expression -> expression MINOR expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+  ! PLUS            [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! MINUS           [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! TIMES           [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! DIVIDE          [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! MINOR           [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! MAJOR           [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! EQUALS          [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+  ! EXP             [ reduce using rule 7 (expression -> expression MINOR expression .) ]
+
+
+state 33
+
+    (8) expression -> expression MINOR EQUALS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 43
+
+state 34
+
+    (11) expression -> expression EQUALS EQUALS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 44
+
+state 35
+
+    (9) expression -> expression MAJOR expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINOR resolved as shift
+  ! shift/reduce conflict for MAJOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 9 (expression -> expression MAJOR expression .)
+    RPAREN          reduce using rule 9 (expression -> expression MAJOR expression .)
+    COMMA           reduce using rule 9 (expression -> expression MAJOR expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+  ! PLUS            [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! MINUS           [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! TIMES           [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! DIVIDE          [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! MINOR           [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! MAJOR           [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! EQUALS          [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+  ! EXP             [ reduce using rule 9 (expression -> expression MAJOR expression .) ]
+
+
+state 36
+
+    (10) expression -> expression MAJOR EQUALS . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 45
+
+state 37
+
+    (12) expression -> expression EXP expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINOR resolved as shift
+  ! shift/reduce conflict for MAJOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 12 (expression -> expression EXP expression .)
+    RPAREN          reduce using rule 12 (expression -> expression EXP expression .)
+    COMMA           reduce using rule 12 (expression -> expression EXP expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+  ! PLUS            [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! MINUS           [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! TIMES           [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! DIVIDE          [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! MINOR           [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! MAJOR           [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! EQUALS          [ reduce using rule 12 (expression -> expression EXP expression .) ]
+  ! EXP             [ reduce using rule 12 (expression -> expression EXP expression .) ]
+
+
+state 38
+
+    (14) expression -> LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    MINOR           reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    MAJOR           reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    EQUALS          reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    EXP             reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 14 (expression -> LPAREN expression RPAREN .)
+
+
+state 39
+
+    (17) expression -> POW LPAREN expression . COMMA expression RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    COMMA           shift and go to state 46
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 40
+
+    (18) expression -> SQRT LPAREN expression . RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 47
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 41
+
+    (19) expression -> MYRNA LPAREN expression . RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 48
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 42
+
+    (20) expression -> BHASKARA LPAREN expression . COMMA expression COMMA expression RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    COMMA           shift and go to state 49
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 43
+
+    (8) expression -> expression MINOR EQUALS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINOR resolved as shift
+  ! shift/reduce conflict for MAJOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 8 (expression -> expression MINOR EQUALS expression .)
+    RPAREN          reduce using rule 8 (expression -> expression MINOR EQUALS expression .)
+    COMMA           reduce using rule 8 (expression -> expression MINOR EQUALS expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+  ! PLUS            [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! MINUS           [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! TIMES           [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! DIVIDE          [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! MINOR           [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! MAJOR           [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! EQUALS          [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+  ! EXP             [ reduce using rule 8 (expression -> expression MINOR EQUALS expression .) ]
+
+
+state 44
+
+    (11) expression -> expression EQUALS EQUALS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINOR resolved as shift
+  ! shift/reduce conflict for MAJOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 11 (expression -> expression EQUALS EQUALS expression .)
+    RPAREN          reduce using rule 11 (expression -> expression EQUALS EQUALS expression .)
+    COMMA           reduce using rule 11 (expression -> expression EQUALS EQUALS expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+  ! PLUS            [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! MINUS           [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! TIMES           [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! DIVIDE          [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! MINOR           [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! MAJOR           [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! EQUALS          [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+  ! EXP             [ reduce using rule 11 (expression -> expression EQUALS EQUALS expression .) ]
+
+
+state 45
+
+    (10) expression -> expression MAJOR EQUALS expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MINOR resolved as shift
+  ! shift/reduce conflict for MAJOR resolved as shift
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 10 (expression -> expression MAJOR EQUALS expression .)
+    RPAREN          reduce using rule 10 (expression -> expression MAJOR EQUALS expression .)
+    COMMA           reduce using rule 10 (expression -> expression MAJOR EQUALS expression .)
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+  ! PLUS            [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! MINUS           [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! TIMES           [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! DIVIDE          [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! MINOR           [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! MAJOR           [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! EQUALS          [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+  ! EXP             [ reduce using rule 10 (expression -> expression MAJOR EQUALS expression .) ]
+
+
+state 46
+
+    (17) expression -> POW LPAREN expression COMMA . expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 50
+
+state 47
+
+    (18) expression -> SQRT LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    MINUS           reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    TIMES           reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    MINOR           reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    MAJOR           reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    EQUALS          reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    EXP             reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    $end            reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+    COMMA           reduce using rule 18 (expression -> SQRT LPAREN expression RPAREN .)
+
+
+state 48
+
+    (19) expression -> MYRNA LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    MINUS           reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    TIMES           reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    MINOR           reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    MAJOR           reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    EQUALS          reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    EXP             reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    $end            reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+    COMMA           reduce using rule 19 (expression -> MYRNA LPAREN expression RPAREN .)
+
+
+state 49
+
+    (20) expression -> BHASKARA LPAREN expression COMMA . expression COMMA expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 51
+
+state 50
+
+    (17) expression -> POW LPAREN expression COMMA expression . RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 52
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 51
+
+    (20) expression -> BHASKARA LPAREN expression COMMA expression . COMMA expression RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    COMMA           shift and go to state 53
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 52
+
+    (17) expression -> POW LPAREN expression COMMA expression RPAREN .
+
+    PLUS            reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    MINUS           reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    TIMES           reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    DIVIDE          reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    MINOR           reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    MAJOR           reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    EQUALS          reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    EXP             reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    $end            reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    RPAREN          reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+    COMMA           reduce using rule 17 (expression -> POW LPAREN expression COMMA expression RPAREN .)
+
+
+state 53
+
+    (20) expression -> BHASKARA LPAREN expression COMMA expression COMMA . expression RPAREN
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression MINOR expression
+    (8) expression -> . expression MINOR EQUALS expression
+    (9) expression -> . expression MAJOR expression
+    (10) expression -> . expression MAJOR EQUALS expression
+    (11) expression -> . expression EQUALS EQUALS expression
+    (12) expression -> . expression EXP expression
+    (13) expression -> . MINUS expression
+    (14) expression -> . LPAREN expression RPAREN
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . POW LPAREN expression COMMA expression RPAREN
+    (18) expression -> . SQRT LPAREN expression RPAREN
+    (19) expression -> . MYRNA LPAREN expression RPAREN
+    (20) expression -> . BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 21
+    POW             shift and go to state 7
+    SQRT            shift and go to state 8
+    MYRNA           shift and go to state 9
+    BHASKARA        shift and go to state 10
+
+    expression                     shift and go to state 54
+
+state 54
+
+    (20) expression -> BHASKARA LPAREN expression COMMA expression COMMA expression . RPAREN
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . MINOR expression
+    (8) expression -> expression . MINOR EQUALS expression
+    (9) expression -> expression . MAJOR expression
+    (10) expression -> expression . MAJOR EQUALS expression
+    (11) expression -> expression . EQUALS EQUALS expression
+    (12) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 55
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    MINOR           shift and go to state 16
+    MAJOR           shift and go to state 18
+    EQUALS          shift and go to state 17
+    EXP             shift and go to state 19
+
+
+state 55
+
+    (20) expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .
+
+    PLUS            reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    MINUS           reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    TIMES           reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    DIVIDE          reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    MINOR           reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    MAJOR           reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    EQUALS          reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    EXP             reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    $end            reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    RPAREN          reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+    COMMA           reduce using rule 20 (expression -> BHASKARA LPAREN expression COMMA expression COMMA expression RPAREN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for EQUALS in state 2 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 32 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 32 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 32 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 32 resolved as shift
+WARNING: shift/reduce conflict for MINOR in state 32 resolved as shift
+WARNING: shift/reduce conflict for MAJOR in state 32 resolved as shift
+WARNING: shift/reduce conflict for EQUALS in state 32 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 32 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 35 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 35 resolved as shift
+WARNING: shift/reduce conflict for MINOR in state 35 resolved as shift
+WARNING: shift/reduce conflict for MAJOR in state 35 resolved as shift
+WARNING: shift/reduce conflict for EQUALS in state 35 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 35 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 37 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 37 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 37 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 37 resolved as shift
+WARNING: shift/reduce conflict for MINOR in state 37 resolved as shift
+WARNING: shift/reduce conflict for MAJOR in state 37 resolved as shift
+WARNING: shift/reduce conflict for EQUALS in state 37 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 37 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 43 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 43 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 43 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 43 resolved as shift
+WARNING: shift/reduce conflict for MINOR in state 43 resolved as shift
+WARNING: shift/reduce conflict for MAJOR in state 43 resolved as shift
+WARNING: shift/reduce conflict for EQUALS in state 43 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 43 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 44 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 44 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 44 resolved as shift
+WARNING: shift/reduce conflict for MINOR in state 44 resolved as shift
+WARNING: shift/reduce conflict for MAJOR in state 44 resolved as shift
+WARNING: shift/reduce conflict for EQUALS in state 44 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 44 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 45 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 45 resolved as shift
+WARNING: shift/reduce conflict for MINOR in state 45 resolved as shift
+WARNING: shift/reduce conflict for MAJOR in state 45 resolved as shift
+WARNING: shift/reduce conflict for EQUALS in state 45 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 45 resolved as shift
